@@ -1,0 +1,26 @@
+********* Builder *****************
+//1- Okunabilir değil yanlış değer atanabilir.
+Customer customer = new Customer("kader", "Çelik", "test@gmail.com", "000000000");
+
+//2- Zorunlu alanlar baypass edilebilir.
+Customer customer = new Customer();
+customer.setName("kader");
+customer.setLastName("Çelik")
+customer.setEmail("test@gmail.com");
+customer.setPhomeNumber("000000000");
+
+//3-Bayy pass edilemez.Gerekli olan değerler builder içerisinde atanır.name ve lastName optionalliğe uygun şekilde çağrılır.
+// çok fazla karışık obje varsa buildir tasarım kalıbı kullanılabilir.
+Customer customer = new Builder("test@gmail.com", "000000000")
+                      .name("kader").lastName("Çelik").build();
+
+********* Singleton *************
+1.Singleton bir tasarım kalıbıdır.Birden fazla nesne oluşup yer kaplamasını engeller.Tek bir nesne oluşturulur.
+
+
+-Sabit değerlerin yeri interface değildir, kesinlikle interface içerisinde tanımlamamalıyız.
+-Sabitleri class içerisine koyabiliriz , İnterface ve class içerindede olur ama en doğru yöntem enum içeririnde olmasıdır.
+
+-solid prensipleri
+1.Her bir clasın bir sorumluluğu olmalı
+2.Değişime kapalı genişlemeye açık olmalı
